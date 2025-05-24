@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pagamento via PIX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #dff6f0;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 40px 20px;
+            color: #2c7a7b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-weight: 600;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(44,122,123,0.4);
+        }
+
+        .numero-box {
+            background-color: #a0e7d7;
+            border: 2px solid #44b39d;
+            border-radius: 15px;
+            padding: 20px 25px;
+            max-width: 350px;
+            width: 100%;
+            font-size: 1.15rem;
+            color: #1f595a;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(68,179,157,0.35);
+            user-select: none;
+        }
+
+        .qrcode {
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            max-width: 320px;
+            width: 100%;
+            position: relative;
+        }
+
+        .qrcode p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+            color: #1f595a;
+            word-wrap: break-word;
+        }
+
+        .qrcode img {
+            margin: 15px 0;
+            width: 220px;
+            height: 220px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(44,122,123,0.3);
+        }
+
+        .btn-final {
+            background-color: #44b39d;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(68,179,157,0.5);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            user-select: none;
+        }
+
+        .btn-final:hover,
+        .btn-final:focus {
+            background-color: #2b7e6f;
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        .btn-trocar {
+            background-color: #f4a261;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(244,162,97,0.6);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 15px;
+            user-select: none;
+        }
+
+        .btn-trocar:hover,
+        .btn-trocar:focus {
+            background-color: #d9822b;
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .btn-copiar {
+            background-color: #2c7a7b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(44,122,123,0.6);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+            user-select: none;
+        }
+
+        .btn-copiar:hover,
+        .btn-copiar:focus {
+            background-color: #1f595a;
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .footer {
+            margin-top: auto;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            color: #555;
+        }
+
+        /* Responsividade */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .numero-box {
+                font-size: 1rem;
+                max-width: 90vw;
+                padding: 15px 20px;
+            }
+
+            .qrcode {
+                padding: 20px 15px;
+                max-width: 90vw;
+            }
+
+            .qrcode p {
+                font-size: 1rem;
+            }
+
+            .qrcode img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .btn-final,
+            .btn-trocar {
+                padding: 12px 25px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .btn-copiar {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pagamento via PIX</h1>
+
+    <div class="numero-box" id="numeroBox">
+        <!-- Mensagem com número vai aparecer aqui -->
+    </div>
+
+    <div class="qrcode">
+        <p>Escaneie o QR Code abaixo ou copie a chave:</p>
+        <img src="qrcode.png" alt="QR Code PIX" />
+        <p id="chavePix"><strong>Chave PIX:</strong> 00020126330014BR.GOV.BCB.PIX011108253339380520400005303986540530.005802BR5901N6001C62110507Charifa6304EAE2</p>
+        <button class="btn-copiar" onclick="copiarChave()">Copiar chave</button>
+    </div>
+
+    <button class="btn-final" onclick="window.location.href='final.html'">JÁ FIZ O PAGAMENTO</button>
+    <button class="btn-trocar" onclick="window.location.href='index.html'">QUER TROCAR O NÚMERO?</button>
+
+    <p class="footer">© João Marcos</p>
+
+    <script>
+        // Pega o número da URL (?numero=xx)
+        const params = new URLSearchParams(window.location.search);
+        const numero = params.get('numero') || 'não informado';
+
+        const numeroBox = document.getElementById('numeroBox');
+        numeroBox.textContent = `Seu número escolhido foi "${numero}". Faça o pagamento e me envie o comprovante.`;
+
+        // Função para copiar chave PIX
+        function copiarChave() {
+            const chave = document.getElementById('chavePix').textContent.replace('Chave PIX:', '').trim();
+            navigator.clipboard.writeText(chave).then(() => {
+                alert('Chave PIX copiada para a área de transferência!');
+            }).catch(err => {
+                alert('Erro ao copiar chave: ' + err);
+            });
+        }
+    </script>
+</body>
+</html>
