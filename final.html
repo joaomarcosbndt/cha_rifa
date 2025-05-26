@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Confirmação de Pagamento</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
     <style>
         body {
-            background-color: #dff6f0;
+            background-image: url('image1.jpg');
+            background-size: cover;
+            background-repeat: repeat;
             font-family: 'Poppins', sans-serif;
             text-align: center;
             padding: 40px 20px;
-            color: #2c7a7b;
+            color: #a84d7b;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -24,46 +27,73 @@
             margin: 0;
             font-weight: 700;
             font-size: 2.5rem;
-            text-shadow: 1px 1px 2px rgba(44,122,123,0.4);
+            color: #d64f94;
+            text-shadow: 1px 1px 3px rgba(214, 79, 148, 0.4);
         }
 
-        .mensagem-box {
-            background-color: #a0e7d7;
-            border: 2px solid #44b39d;
-            border-radius: 15px;
+        .mensagem-box, .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 2px solid #f2b5d4;
+            border-radius: 20px;
             padding: 25px 30px;
-            max-width: 450px;
+            max-width: 500px;
             width: 100%;
             font-size: 1.15rem;
-            color: #1f595a;
+            color: #80365a;
             font-weight: 500;
-            box-shadow: 0 4px 12px rgba(68,179,157,0.35);
+            box-shadow: 0 6px 18px rgba(248, 165, 204, 0.3);
             line-height: 1.7;
         }
 
-        .mensagem-box strong {
-            color: #2b7e6f;
+        .mensagem-box strong, .container strong {
+            color: #d64f94;
+        }
+
+        a {
+            color: #d64f94;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         .btn-contato {
-            background-color: #44b39d;
+            background-color: #d64f94;
             color: white;
             border: none;
             padding: 15px 35px;
             font-size: 1.2rem;
-            border-radius: 12px;
+            border-radius: 25px;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 6px 12px rgba(68,179,157,0.5);
+            box-shadow: 0 8px 15px rgba(214, 79, 148, 0.4);
             transition: background-color 0.3s ease, transform 0.2s ease;
-            user-select: none;
         }
 
-        .btn-contato:hover,
-        .btn-contato:focus {
-            background-color: #2b7e6f;
+        .btn-contato:hover {
+            background-color: #a84d7b;
             transform: translateY(-3px);
-            outline: none;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .links a {
+            background-color: #f7d4e4;
+            padding: 10px 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(214, 79, 148, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #f0c0db;
         }
 
         .footer {
@@ -78,7 +108,7 @@
                 font-size: 2rem;
             }
 
-            .mensagem-box {
+            .mensagem-box, .container {
                 font-size: 1rem;
                 max-width: 90vw;
                 padding: 20px;
@@ -93,22 +123,29 @@
         }
     </style>
 </head>
-<body>
-
-    <h1>Confirmação de Pagamento</h1>
+<body>   
 
     <div class="mensagem-box">
+	 <h1>Confirmação de Pagamento</h1>
         <p>Fez o pagamento? Agora me envie o <strong>comprovante</strong> e o <strong>número escolhido</strong> para garantir sua participação.</p>
-
         <p><strong>⚠️ Caso ainda não tenha feito o pagamento, retorne e realize agora mesmo.</strong></p>
+    </div>
 
-        <p><strong>Contato:</strong> Lenilza Ferreira</p>
+    <div class="container">
+        <h1>Regras do Sorteio</h1>
+        <p>
+            O sorteio acontece no dia <strong>22 de junho</strong> através do 
+            <a href="https://www.youtube.com/c/TotolecShowOficial/streams" target="_blank">🎯 Totolec Show</a>!<br><br>
+            🏆 O número vencedor será o <strong>primeiro número sorteado</strong> no Totolec.<br>
+            👉 Se o primeiro número sorteado estiver <strong>vazio</strong>, o sorteio segue para o segundo número.<br>
+            👉 Se também estiver vazio, passa para o terceiro e assim sucessivamente.<br><br>
+            🕘 Começa por volta das <strong>9 horas da manhã</strong> e será transmitido:<br><br>
+            📺 Na <a href="https://mi.tv/br/canais/tv-jangadeiro" target="_blank">📡 TV Jangadeiro</a><br>
+            ▶️ E ao vivo no canal do YouTube <a href="https://www.youtube.com/c/TotolecShowOficial/streams" target="_blank">🎯 Totolec Show Oficial</a>.<br><br>
+            📹 Farei também a <strong>gravação do sorteio</strong> e divulgarei nas minhas <strong>redes sociais</strong>.<br><br>
+            🍀 <strong>Boa sorte a todos!</strong> 🙌✨
+        </p>
 
-        <p>🗓️ <strong>O sorteio ocorrerá no dia 22 de Junho de 2025.</strong></p>
-
-        <p>❓ <strong>Alguma dúvida?</strong> Entre em contato comigo.</p>
-
-        <p>✨ <strong>Agradeço desde já sua participação e boa sorte!</strong></p>
     </div>
 
     <button class="btn-contato" onclick="window.location.href='https://wa.me/5585992364499?text=Olá,%20Lenilza!%20Fiz%20o%20pagamento%20e%20meu%20número%20escolhido%20é%20_________.%20Segue%20o%20comprovante.'">
